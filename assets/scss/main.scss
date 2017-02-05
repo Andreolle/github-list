@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+// BASE
+@import "base/mixins.scss",
+		"base/variables.scss";
+
+// NORMALIZE
+@import "reset/boilerplate.scss";
+
+// FOUNDATION
+@import "vendor/foundation.min.css";
+
+// CORE
+@import "core/helpers.scss",
+		"core/components.scss",
+		"core/webfonts.scss",
+		"core/style.scss";
