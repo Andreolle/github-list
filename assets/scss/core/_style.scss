@@ -1,1 +1,19 @@
 @charset "UTF-8";
+
+// Defaults
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: $font-size;
+	background: $body-background;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.title {
+	color: #1565c0;
+	font-weight: 400;
+}

@@ -1,5 +1,5 @@
 module.exports = function( grunt ) {
-    var setPort = 8080;
+    var setPort = 3030;
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         uglify : {
@@ -31,6 +31,11 @@ module.exports = function( grunt ) {
             }
         }, // connect
 
+        open : {
+            dev : {
+                path: 'http://localhost:'+setPort
+            }
+        }, // open
 
         watch : {
             dist : {
@@ -38,7 +43,10 @@ module.exports = function( grunt ) {
                     'assets/js/**/*',
                     'assets/scss/**/*'
                 ],
-                tasks : [ 'uglify', 'compass' ]
+                tasks : [ 'uglify', 'compass' ],
+                options: {
+                  livereload: true
+                },
             }
         } // watch
 
@@ -49,8 +57,9 @@ module.exports = function( grunt ) {
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks( 'grunt-contrib-watch' );
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-open');
 
     // Roda Tarefas
-    grunt.registerTask( 'run', [ 'uglify', 'connect','compass', 'watch' ] );
+    grunt.registerTask( 'run', [ 'uglify', 'connect', 'open', 'compass', 'watch' ] );
 
 };
