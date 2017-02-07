@@ -2,7 +2,9 @@
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="pt-br"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="pt-br"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="pt-br"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="pt-br"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="pt-br" ng-app="GitList">
+<!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -14,82 +16,79 @@
 	<meta http-equiv="cleartype" content="on">
 	<meta name="robots" content="index, follow">
 	<script src="//localhost:35729/livereload.js"></script>
+	
+	<script src="assets/libs/angular/angular.js"></script>
+	<script src="assets/js/app.js"></script>
+	<script src="assets/js/controllers/githubCtrl.js"></script>
 
 	<title>Github - Mundipagg</title>
 
 	<link rel="stylesheet" href="build/assets/css/main.css">
 </head>
 
-<body>
+<body ng-controller="GitListController">
 
-	<main>
-		<aside class="menu medium-3 columns">
-			<div class="menu__header">
-				<img src="assets/images/logo.png" alt="Mundipagg">
+	<aside class="menu medium-3 columns">
+		<div class="menu__header">
+			<img src="assets/images/logo.png" alt="Mundipagg">
+		</div>
+
+		<nav class="menu__body">
+			<ul ng-repeat="repository in repos | orderBy: '-forks_count'">
+				<li class="menu-item">
+					<a href="" class="menu-item__name">{{repository.name}}</a>
+					<span class="menu-item__lang">{{repository.language}}</span>
+					<span class="menu-item__forks">{{repository.forks_count}}</span>
+					<span class="menu-item__stars">{{repository.stargazers_count}}</span>
+				</li>
+			</ul>
+		</nav>
+
+	</aside>
+
+	<section class="medium-9 columns">
+		<header>
+			<h1 class="title"> Titulo Bacana </h1>
+			
+			<div class="repo-stats medium-10 columns no-padding end">
+				<div class="repo-stats--stars repo-stats__box medium-3 columns">
+					<h2 class="repo-stats__title">Stars</h2>
+					<div class="repo-stats__numbers">999.9999</div>
+				</div>
+				<div class="repo-stats--forks repo-stats__box medium-3 columns">
+					<h2 class="repo-stats__title">Forks</h2>
+					<div class="repo-stats__numbers">999.9999</div>
+				</div>
+				<div class="repo-stats--contribs repo-stats__box medium-3 end columns">
+					<h2 class="repo-stats__title">Contribs</h2>
+					<div class="repo-stats__numbers">999.9999</div>
+				</div>
+			</div>
+		</header>
+		
+		<div class="row"></div>
+
+		<section>
+			<h2 class="title">Commits</h2>
+
+			<div class="list-commits medium-12 columns">
+				<ul>
+					<li><a href="">Commit</a></li>
+					<li><a href="">Commit</a></li>
+					<li><a href="">Commit</a></li>
+					<li><a href="">Commit</a></li>
+					<li><a href="">Commit</a></li>
+					<li><a href="">Commit</a></li>
+					<li><a href="">Commit</a></li>
+					<li><a href="">Commit</a></li>
+				</ul>
 			</div>
 
-			<nav class="menu__body">
-				<ul>
-					<li><a href="">Magento.Integracao</a></li>
-					<li><a href="">Stone.Prepay.ApiClient</a></li>
-					<li><a href="">mundipagg-wallet-ios</a></li>
-					<li><a href="">OneSignal-CSharp-SDK</a></li>
-					<li><a href="">mundipagg-one-dotnet</a></li>
-					<li><a href="">mundipagg-wallet-android</a></li>
-					<li><a href="">mundipagg-one-python</a></li>
-					<li><a href="">mundipagg-one-php</a></li>
-					<li><a href="">mundipagg-one-ruby</a></li>
-					<li><a href="">SkyNet</a></li>
-				</ul>
-			</nav>
+			<div class="commits-graph medium-12 columns">
+			graph
+			</div>
 
-		</aside>
-
-		<section class="medium-9 columns">
-			<header>
-				<h1 class="title">{{Nome do repositório}}</h1>
-				
-				<div class="repo-stats medium-10 columns no-padding end">
-					<div class="repo-stats--stars repo-stats__box medium-3 columns">
-						<h2 class="repo-stats__title">Stars</h2>
-						<div class="repo-stats__numbers">999.9999</div>
-					</div>
-					<div class="repo-stats--forks repo-stats__box medium-3 columns">
-						<h2 class="repo-stats__title">Forks</h2>
-						<div class="repo-stats__numbers">999.9999</div>
-					</div>
-					<div class="repo-stats--contribs repo-stats__box medium-3 end columns">
-						<h2 class="repo-stats__title">Contribs</h2>
-						<div class="repo-stats__numbers">999.9999</div>
-					</div>
-				</div>
-			</header>
-			
-			<div class="row"></div>
-
-			<section>
-				<h2 class="title">Commits</h2>
-
-				<div class="list-commits medium-12 columns border">
-					<ul>
-						<li><a href="">Commit</a></li>
-						<li><a href="">Commit</a></li>
-						<li><a href="">Commit</a></li>
-						<li><a href="">Commit</a></li>
-						<li><a href="">Commit</a></li>
-						<li><a href="">Commit</a></li>
-						<li><a href="">Commit</a></li>
-						<li><a href="">Commit</a></li>
-					</ul>
-				</div>
-
-				<div class="commits-graph medium-12 columns border">
-				graph
-				</div>
-
-			</section>
 		</section>
-	</main>
-
+	</section>
 </body>
 </html>

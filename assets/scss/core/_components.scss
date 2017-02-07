@@ -5,6 +5,19 @@
 	height: 100vh;
 	background: $color-light_blue;
 	overflow: auto;
+	
+	&::-webkit-scrollbar {
+		width: 0.8rem;
+	}
+
+	&::-webkit-scrollbar-track {
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: #117db3;
+		outline: 1px solid slategrey;
+	}
 }
 
 .menu__header {
@@ -17,26 +30,66 @@
 
 .menu__body {
 	padding: 15px 0;
+}
 
-	ul {
-		li {
-			margin-bottom: 10px;
-			border-bottom: 1px solid rgba(255,255,255,0.3);
-			padding: 5px 0;
-			a {
-				text-decoration: none;
-				color: $color-white;
-			}
-		}
+.menu-item {
+	padding: 10px 0;
+	border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.menu-item__name {
+	display: block;
+	text-decoration: none;
+	color: $color-white;
+	font-weight: 600;
+	margin-bottom: 3px;
+}
+
+.menu-item__lang,
+.menu-item__forks,
+.menu-item__stars {
+	display: inline-block;
+	color: $color-white;
+}
+
+.menu-item__lang {
+	color: $color-yellow;
+}
+
+.menu-item__forks,
+.menu-item__stars {
+	margin: 0 3px;
+	&:before {
+		content: "";
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		vertical-align: top;
+	}
+}
+
+.menu-item__forks {
+	&:before {
+		background: url("../../../assets/images/git-fork.svg") no-repeat center;
+		background-size: contain;
+	}
+}
+
+.menu-item__stars {
+	&:before {
+		background: url("../../../assets/images/git-star.svg") no-repeat center;
+		background-size: contain;
 	}
 }
 
 
 
-// Content - Repositoy Stats
+
+// Content - Repository Stats
 
 .repo-stats__box {
-	border: 1px solid rgba(0,0,0,0.3);
+	background: $color-white;
+	border: 1px solid #e5e5e5;
 	position: relative;
 	margin-right: 30px;
 	padding: 5px 10px;
@@ -76,4 +129,35 @@
 .repo-stats--contribs {
 	background-image: url("../../../assets/images/users.svg");
 	background-size: 2.5rem;
+}
+
+
+// Commits - List
+
+.list-commits {
+	background: $color-white;
+	padding: 5px 20px;
+	margin-bottom: 20px;
+	ul {
+		li {
+			border-bottom: 1px solid #e5e5e5;
+			padding: 10px 0;
+			&:last-child {
+				border-bottom: 0;
+			}
+			a {
+				text-decoration: none;
+				color: $color-blue;
+				&:hover {
+					color: $color-light_blue;
+				}
+			}
+		}
+	}
+}
+
+// Commits - Graph
+
+.commits-graph {
+	background: $color-white;
 }
