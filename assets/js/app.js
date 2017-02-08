@@ -1,1 +1,1 @@
-angular.module('GitList', []);
+angular.module('GitList', ['ngRoute']);

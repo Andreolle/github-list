@@ -1,0 +1,19 @@
+.view-default {
+	position: absolute;
+	display: inline-block;
+	width: 50%;
+	height: 430px;
+	text-align: center;
+	left: 50%;
+	margin-left: -25%;
+	top: 50%;
+	margin-top: -215px;
+	.title--message {
+		font-size: 35px;
+	}
+}
+
+.view-default__logo {
+	width: 50%;
+	display: inline-block;
+}

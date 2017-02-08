@@ -13,7 +13,11 @@ ul {
 	padding: 0;
 }
 
-.title {
+[class*='title'] {
 	color: #1565c0;
 	font-weight: 400;
+}
+
+.title--message {
+	color: #737373;
 }

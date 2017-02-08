@@ -1,0 +1,75 @@
+// Content - Repository Stats
+
+.repo-stats__box {
+	background: $color-white;
+	border: 1px solid #e5e5e5;
+	position: relative;
+	margin-right: 30px;
+	padding: 5px 10px;
+	background-position: 95%;
+	background-repeat: no-repeat;
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.repo-stats {
+	color: $color-black;
+}
+
+.repo-stats__title {
+	margin: 0;
+	font-weight: 400;
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+
+.repo-stats__numbers {
+	font-size: 22px;
+	font-weight: 600;
+}
+
+.repo-stats--stars {
+	background-image: url("../../../assets/images/git-star.svg");
+	background-size: 3rem;
+}
+
+.repo-stats--forks {
+	background-image: url("../../../assets/images/git-fork.svg");
+	background-size: 2rem;
+}
+
+.repo-stats--contribs {
+	background-image: url("../../../assets/images/users.svg");
+	background-size: 2.5rem;
+}
+
+// Commits - List
+
+.list-commits {
+	background: $color-white;
+	padding: 5px 20px;
+	margin-bottom: 20px;
+	ul {
+		li {
+			border-bottom: 1px solid #e5e5e5;
+			padding: 10px 0;
+			&:last-child {
+				border-bottom: 0;
+			}
+			a {
+				text-decoration: none;
+				color: $color-blue;
+				&:hover {
+					color: $color-light_blue;
+				}
+			}
+		}
+	}
+}
+
+// Commits - Graph
+
+.commits-graph {
+	background: $color-white;
+}

@@ -15,10 +15,15 @@
 	<meta name="MobileOptimized" content="320">
 	<meta http-equiv="cleartype" content="on">
 	<meta name="robots" content="index, follow">
+	<!-- Libs -->
 	<script src="//localhost:35729/livereload.js"></script>
-	
 	<script src="assets/libs/angular/angular.js"></script>
+	<script src="assets/libs/angular-route/angular-route.min.js"></script>
+	<!-- Main -->
 	<script src="assets/js/app.js"></script>
+	<!-- Config -->
+	<script src="assets/js/config/routerConfig.js"></script>
+	<!-- Controllers -->
 	<script src="assets/js/controllers/githubCtrl.js"></script>
 
 	<title>Github - Mundipagg</title>
@@ -46,49 +51,8 @@
 
 	</aside>
 
-	<section class="medium-9 columns">
-		<header>
-			<h1 class="title"> Titulo Bacana </h1>
-			
-			<div class="repo-stats medium-10 columns no-padding end">
-				<div class="repo-stats--stars repo-stats__box medium-3 columns">
-					<h2 class="repo-stats__title">Stars</h2>
-					<div class="repo-stats__numbers">999.9999</div>
-				</div>
-				<div class="repo-stats--forks repo-stats__box medium-3 columns">
-					<h2 class="repo-stats__title">Forks</h2>
-					<div class="repo-stats__numbers">999.9999</div>
-				</div>
-				<div class="repo-stats--contribs repo-stats__box medium-3 end columns">
-					<h2 class="repo-stats__title">Contribs</h2>
-					<div class="repo-stats__numbers">999.9999</div>
-				</div>
-			</div>
-		</header>
-		
-		<div class="row"></div>
-
-		<section>
-			<h2 class="title">Commits</h2>
-
-			<div class="list-commits medium-12 columns">
-				<ul>
-					<li><a href="">Commit</a></li>
-					<li><a href="">Commit</a></li>
-					<li><a href="">Commit</a></li>
-					<li><a href="">Commit</a></li>
-					<li><a href="">Commit</a></li>
-					<li><a href="">Commit</a></li>
-					<li><a href="">Commit</a></li>
-					<li><a href="">Commit</a></li>
-				</ul>
-			</div>
-
-			<div class="commits-graph medium-12 columns">
-			graph
-			</div>
-
-		</section>
+	<section class="repository-overview medium-9 columns">
+		<div ng-view></div>
 	</section>
 </body>
 </html>
