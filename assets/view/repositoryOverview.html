@@ -1,19 +1,21 @@
+<!-- Services -->
+<script src="assets/js/service/githubAPIService.js"></script>
 <article>
 	<header>
-		<h1 class="title"> Titulo Bacana </h1>
+		<h1 class="title">{{repoDetails.name}}</h1>
 		
 		<div class="repo-stats medium-10 columns no-padding end">
 			<div class="repo-stats--stars repo-stats__box medium-3 columns">
 				<h2 class="repo-stats__title">Stars</h2>
-				<div class="repo-stats__numbers">999.9999</div>
+				<div class="repo-stats__numbers">{{repoDetails.stargazers_count}}</div>
 			</div>
 			<div class="repo-stats--forks repo-stats__box medium-3 columns">
 				<h2 class="repo-stats__title">Forks</h2>
-				<div class="repo-stats__numbers">999.9999</div>
+				<div class="repo-stats__numbers">{{repoDetails.forks_count}}</div>
 			</div>
 			<div class="repo-stats--contribs repo-stats__box medium-3 end columns">
 				<h2 class="repo-stats__title">Contribs</h2>
-				<div class="repo-stats__numbers">999.9999</div>
+				<div class="repo-stats__numbers">{{666}}</div>
 			</div>
 		</div>
 	</header>
@@ -25,14 +27,7 @@
 
 		<div class="list-commits medium-12 columns">
 			<ul>
-				<li><a href="">Commit</a></li>
-				<li><a href="">Commit</a></li>
-				<li><a href="">Commit</a></li>
-				<li><a href="">Commit</a></li>
-				<li><a href="">Commit</a></li>
-				<li><a href="">Commit</a></li>
-				<li><a href="">Commit</a></li>
-				<li><a href="">Commit</a></li>
+				<li><a href="">{{repoDetails.name}}</a></li>
 			</ul>
 		</div>
 

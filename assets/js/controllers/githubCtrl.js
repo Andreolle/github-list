@@ -1,12 +1,25 @@
-angular.module("GitList").controller('GitListController', function ($scope, $http) {
+angular.module("GitList").controller('GitListController', function ($scope, githubAPI) {
 	
-	$scope.repos = [];
+	$scope.repoDetails = [];
+	$scope.listRepos = [];
 
-	var getRepos = function () {
-		$http.get("https://api.github.com/users/mundipagg/repos").success(function(data) {
-			$scope.repos = data;
+	var listRepos = function () {
+		githubAPI.getRepos().success(function(data) {
+			$scope.listRepos = data;
 		});
 	};
 
-	getRepos();
+	var repoDetails = function (repoID) {
+		githubAPI.getRepos().success(function(response) {
+			response.forEach(function(obj, index) {
+				if(response[index].id == repoID) {
+					$scope.repoDetails = response[index];
+				}
+			});
+		});
+	}
+
+
+	repoDetails("64309121");
+	listRepos();
 });

@@ -21,6 +21,8 @@
 	<script src="assets/libs/angular-route/angular-route.min.js"></script>
 	<!-- Main -->
 	<script src="assets/js/app.js"></script>
+	<!-- Services -->
+	<script src="assets/js/service/githubAPIService.js"></script>
 	<!-- Config -->
 	<script src="assets/js/config/routerConfig.js"></script>
 	<!-- Controllers -->
@@ -32,16 +34,14 @@
 </head>
 
 <body ng-controller="GitListController">
-
 	<aside class="menu medium-3 columns">
 		<div class="menu__header">
 			<img src="assets/images/logo.png" alt="Mundipagg">
 		</div>
-
 		<nav class="menu__body">
-			<ul ng-repeat="repository in repos | orderBy: '-forks_count'">
+			<ul ng-repeat="repository in listRepos | orderBy: '-forks_count'">
 				<li class="menu-item">
-					<a href="" class="menu-item__name">{{repository.name}}</a>
+					<a href="#/repositorio/{{repository.name}}" class="menu-item__name">{{repository.name}}</a>
 					<span class="menu-item__lang">{{repository.language}}</span>
 					<span class="menu-item__forks">{{repository.forks_count}}</span>
 					<span class="menu-item__stars">{{repository.stargazers_count}}</span>
