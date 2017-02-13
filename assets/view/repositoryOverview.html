@@ -2,37 +2,42 @@
 <script src="assets/js/service/githubAPIService.js"></script>
 <article>
 	<header>
-		<h1 class="title">{{repoDetails.name}}</h1>
+		<h1 class="title">{{repoInfo.name}}</h1>
 		
 		<div class="repo-stats medium-10 columns no-padding end">
 			<div class="repo-stats--stars repo-stats__box medium-3 columns">
 				<h2 class="repo-stats__title">Stars</h2>
-				<div class="repo-stats__numbers">{{repoDetails.stargazers_count}}</div>
+				<div class="repo-stats__numbers">{{repoInfo.stargazers_count}}</div>
 			</div>
 			<div class="repo-stats--forks repo-stats__box medium-3 columns">
 				<h2 class="repo-stats__title">Forks</h2>
-				<div class="repo-stats__numbers">{{repoDetails.forks_count}}</div>
+				<div class="repo-stats__numbers">{{repoInfo.forks_count}}</div>
 			</div>
 			<div class="repo-stats--contribs repo-stats__box medium-3 end columns">
 				<h2 class="repo-stats__title">Contribs</h2>
-				<div class="repo-stats__numbers">{{666}}</div>
+				<div class="repo-stats__numbers">{{repoContributors}}</div>
 			</div>
 		</div>
 	</header>
 
 	<div class="row"></div>
 
-	<section>
+	<section class="list-commits-container">
 		<h2 class="title">Commits</h2>
 
 		<div class="list-commits medium-12 columns">
 			<ul>
-				<li><a href="">{{repoDetails.name}}</a></li>
+				<li ng-repeat="commits in repoCommits">
+					<div class="img-container">
+						<img src="{{commits.author.avatar_url}}" alt="{{commits.author.login}}">
+					</div>
+					<div class="text-container">
+						<a href="{{commits.html_url}}" target="_blank">{{commits.commit.message}}</a>
+						
+						<a href="{{commits.author.html_url}}" target="_blank" class="commit-author">{{commits.author.login}}</a>
+					</div>
+				</li>
 			</ul>
-		</div>
-
-		<div class="commits-graph medium-12 columns">
-		graph
 		</div>
 
 	</section>

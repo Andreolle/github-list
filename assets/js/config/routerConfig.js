@@ -1,10 +1,18 @@
-angular.module("GitList").config(function ($routeProvider) {
-	$routeProvider.when('/repositorio/', {
-		templateUrl: 'assets/view/repositoryOverview.html'
-		// controller: 'GitListController'
-	}).otherwise({ 
-		templateUrl: 'assets/view/nonSelected.html'
+angular.module("GitList").config(function ($locationProvider, $stateProvider) {
+	
+	$stateProvider.state('start', {
+		url: '/',
+		templateUrl: 'assets/view/nonSelected.html',
+		controller: 'OverviewController'
 	});
-});
 
-// githubAPI.repoDetails("67161724")
+	$stateProvider.state('repositorio', {
+		url: '/repositorio/:name',
+		templateUrl: 'assets/view/repositoryOverview.html',
+		controller: 'OverviewController'
+	});
+
+	
+	// $locationProvider.html5Mode(true);
+
+});

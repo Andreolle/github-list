@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="pt-br"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="pt-br"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="pt-br"> <![endif]-->
@@ -6,6 +6,7 @@
 <html class="no-js" lang="pt-br" ng-app="GitList">
 <!--<![endif]-->
 <head>
+	<base href="/">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -19,6 +20,7 @@
 	<script src="//localhost:35729/livereload.js"></script>
 	<script src="assets/libs/angular/angular.js"></script>
 	<script src="assets/libs/angular-route/angular-route.min.js"></script>
+	<script src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<!-- Main -->
 	<script src="assets/js/app.js"></script>
 	<!-- Services -->
@@ -26,33 +28,33 @@
 	<!-- Config -->
 	<script src="assets/js/config/routerConfig.js"></script>
 	<!-- Controllers -->
-	<script src="assets/js/controllers/githubCtrl.js"></script>
+	<script src="assets/js/controllers/listCtrl.js"></script>
+	<script src="assets/js/controllers/overviewCtrl.js"></script>
 
 	<title>Github - Mundipagg</title>
 
 	<link rel="stylesheet" href="build/assets/css/main.css">
 </head>
 
-<body ng-controller="GitListController">
-	<aside class="menu medium-3 columns">
+<body>
+	<aside class="menu medium-3 columns" ng-controller="GitListController">
 		<div class="menu__header">
 			<img src="assets/images/logo.png" alt="Mundipagg">
 		</div>
 		<nav class="menu__body">
 			<ul ng-repeat="repository in listRepos | orderBy: '-forks_count'">
 				<li class="menu-item">
-					<a href="#/repositorio/{{repository.name}}" class="menu-item__name">{{repository.name}}</a>
+					<a ui-sref="repositorio({name: repository.name})" class="menu-item__name">{{repository.name}}</a>
 					<span class="menu-item__lang">{{repository.language}}</span>
 					<span class="menu-item__forks">{{repository.forks_count}}</span>
 					<span class="menu-item__stars">{{repository.stargazers_count}}</span>
 				</li>
 			</ul>
 		</nav>
-
 	</aside>
 
 	<section class="repository-overview medium-9 columns">
-		<div ng-view></div>
+		<main ui-view></main>
 	</section>
 </body>
 </html>

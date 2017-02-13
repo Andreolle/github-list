@@ -4,14 +4,12 @@ angular.module("GitList").factory('githubAPI', function ($http) {
 		return $http.get("https://api.github.com/users/mundipagg/repos");
 	}
 
-	var _getCommits = function() {
-		// Trocar por variáveis com o nome do repositório
-		return $http.get("https://api.github.com/repos/mundipagg/Magento.Integracao/commits");
+	var _getCommits = function(repoName) {
+		return $http.get("https://api.github.com/repos/mundipagg/"+repoName+"/commits");
 	}
 
-	var _getContributors = function() {
-		// Trocar por variáveis com o nome do repositório
-		return $http.get("https://api.github.com/repos/mundipagg/Magento.Integracao/contributors");
+	var _getContributors = function(repoName) {
+		return $http.get("https://api.github.com/repos/mundipagg/"+repoName+"/contributors");
 	}
 
 	return {
