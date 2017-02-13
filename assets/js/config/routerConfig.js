@@ -11,7 +11,6 @@ angular.module("GitList").config(function ($locationProvider, $stateProvider) {
 		templateUrl: 'assets/view/repositoryOverview.html',
 		controller: 'OverviewController'
 	});
-
 	
 	// $locationProvider.html5Mode(true);
 

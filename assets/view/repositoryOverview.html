@@ -4,7 +4,7 @@
 	<header>
 		<h1 class="title">{{repoInfo.name}}</h1>
 		
-		<div class="repo-stats medium-10 columns no-padding end">
+		<div class="repo-stats medium-12 columns no-padding end">
 			<div class="repo-stats--stars repo-stats__box medium-3 columns">
 				<h2 class="repo-stats__title">Stars</h2>
 				<div class="repo-stats__numbers">{{repoInfo.stargazers_count}}</div>
@@ -28,7 +28,7 @@
 		<div class="list-commits medium-12 columns">
 			<ul>
 				<li ng-repeat="commits in repoCommits">
-					<div class="img-container">
+					<div class="img-container" ng-hide="!commits.author.avatar_url">
 						<img src="{{commits.author.avatar_url}}" alt="{{commits.author.login}}">
 					</div>
 					<div class="text-container">

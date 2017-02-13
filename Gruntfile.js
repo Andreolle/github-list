@@ -2,17 +2,6 @@ module.exports = function( grunt ) {
     var setPort = 3030;
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        uglify : {
-            options : {
-                mangle : false
-            },
-
-            my_target : {
-                files : {
-                    'build/assets/js/main.min.js' : [ 'assets/js/main.js' ]
-                }
-            }
-        }, // uglify
 
         compass: {
             dist: {
@@ -22,6 +11,15 @@ module.exports = function( grunt ) {
                 }
             }
         }, // compass
+
+        copy: {
+            main: {
+                files: [
+                    // makes all src relative to cwd
+                    {expand: true, cwd: 'assets/images/', src: ['**'], dest: 'build/assets/images'},
+                ],
+            },
+        },
 
         connect: {
             server: {
@@ -43,7 +41,7 @@ module.exports = function( grunt ) {
                     'assets/js/**/*',
                     'assets/scss/**/*'
                 ],
-                tasks : [ 'uglify', 'compass' ],
+                tasks : ['compass' ],
                 options: {
                   livereload: true
                 },
@@ -53,13 +51,14 @@ module.exports = function( grunt ) {
     });
 
     // Plugins do Grunt
-    grunt.loadNpmTasks( 'grunt-contrib-uglify' );
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks( 'grunt-contrib-watch' );
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-open');
 
     // Roda Tarefas
-    grunt.registerTask( 'run', [ 'uglify', 'connect', 'open', 'compass', 'watch' ] );
+    grunt.registerTask( 'build', ['copy']);
+    grunt.registerTask( 'run', ['connect', 'open', 'compass', 'watch' ] );
 
 };

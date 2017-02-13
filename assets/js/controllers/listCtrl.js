@@ -8,5 +8,9 @@ angular.module("GitList").controller('GitListController', function ($scope, gith
 		});
 	};
 
+	$scope.open = function() {
+		$scope.isActive = !$scope.isActive;
+	}
+
 	listRepos();
 });

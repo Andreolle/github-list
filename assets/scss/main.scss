@@ -11,8 +11,6 @@
 @import "core/helpers.scss",
 		"core/components.scss",
 		"core/webfonts.scss",
-		"core/style.scss";
-
-// VIEWS
-@import "view/nonSelected.scss",
-		"view/repositoryOverview.scss";
+		"core/style.scss",
+		"core/nonSelected.scss",
+		"core/repositoryOverview.scss";
