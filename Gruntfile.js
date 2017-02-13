@@ -21,6 +21,14 @@ module.exports = function( grunt ) {
             },
         },
 
+
+concat: {
+    dist: {
+        src: ['assets/libs/angular/angular.js' ,'assets/libs/angular-ui-router/release/angular-ui-router.min.js', 'assets/js/app.js', 'assets/js/**/*.js'],
+        dest: 'build/js/bundle.js',
+    },
+},
+
         connect: {
             server: {
                 options: {
@@ -54,11 +62,12 @@ module.exports = function( grunt ) {
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks( 'grunt-contrib-watch' );
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-open');
 
     // Roda Tarefas
-    grunt.registerTask( 'build', ['copy']);
+    grunt.registerTask( 'build', ['copy', 'concat']);
     grunt.registerTask( 'run', ['connect', 'open', 'compass', 'watch' ] );
 
 };

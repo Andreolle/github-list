@@ -1,7 +1,7 @@
 angular.module("GitList").config(function ($locationProvider, $stateProvider) {
 	
 	$stateProvider.state('start', {
-		url: '/',
+		url: '',
 		templateUrl: 'assets/view/nonSelected.html',
 		controller: 'OverviewController'
 	});
@@ -11,7 +11,5 @@ angular.module("GitList").config(function ($locationProvider, $stateProvider) {
 		templateUrl: 'assets/view/repositoryOverview.html',
 		controller: 'OverviewController'
 	});
-	
-	// $locationProvider.html5Mode(true);
 
 });

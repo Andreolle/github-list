@@ -16,19 +16,7 @@
 	<meta name="MobileOptimized" content="320">
 	<meta http-equiv="cleartype" content="on">
 	<meta name="robots" content="index, follow">
-	<!-- Libs -->
-	<script src="//localhost:35729/livereload.js"></script>
-	<script src="assets/libs/angular/angular.js"></script>
-	<script src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
-	<!-- Main -->
-	<script src="assets/js/app.js"></script>
-	<!-- Services -->
-	<script src="assets/js/service/githubAPIService.js"></script>
-	<!-- Config -->
-	<script src="assets/js/config/routerConfig.js"></script>
-	<!-- Controllers -->
-	<script src="assets/js/controllers/listCtrl.js"></script>
-	<script src="assets/js/controllers/overviewCtrl.js"></script>
+	<script src="build/js/bundle.js"></script>
 
 	<title>Github - Mundipagg</title>
 
@@ -38,7 +26,7 @@
 <body>
 	<aside class="menu medium-5 large-3 columns" ng-controller="GitListController" ng-class="{'open': isActive}">
 		<div class="menu__header">
-			<img src="assets/images/logo.png" alt="Mundipagg">
+			<a href="/"><img src="assets/images/logo.png" alt="Mundipagg"></a>
 
 			<div class="menu-container" ng-click="open()" ng-class="{'change': isActive}">
 				<div class="bar1"></div>
