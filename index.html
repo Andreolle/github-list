@@ -17,25 +17,17 @@
 	<meta name="MobileOptimized" content="320">
 	<meta http-equiv="cleartype" content="on">
 	<meta name="robots" content="index, follow">
+	
 	<script src="build/js/bundle.js"></script>
+	<!-- <script src="assets/libs/angular-route/angular-route.min.js"></script> -->
 
 	<title>Github - Mundipagg</title>
-
 	<link rel="stylesheet" href="build/assets/css/main.css">
 </head>
 
 <body>
-	<aside class="menu medium-5 large-3 columns" ng-controller="GitListController" ng-class="{'open': isActive}">
-		<div class="menu__header">
-			<a href="/"><img src="assets/images/logo.png" alt="Mundipagg"></a>
-
-			<div class="menu-container" ng-click="open()" ng-class="{'change': isActive}">
-				<div class="bar1"></div>
-				<div class="bar2"></div>
-				<div class="bar3"></div>
-			</div>
-		</div>
-		<nav class="menu__body">
+	<menu class="menu medium-5 large-3 columns" logo="assets/images/logo.png">
+		<span ng-controller="GitListController">
 			<ul ng-repeat="repository in listRepos | orderBy: '-forks_count'">
 				<li class="menu-item">
 					<a ui-sref="repositorio({name: repository.name})" class="menu-item__name">{{repository.name}}</a>
@@ -44,8 +36,8 @@
 					<span class="menu-item__stars">{{repository.stargazers_count}}</span>
 				</li>
 			</ul>
-		</nav>
-	</aside>
+		</span>
+	</menu>
 
 	<section class="repository-overview medium-7 large-9 columns">
 		<main ui-view></main>

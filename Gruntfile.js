@@ -22,12 +22,15 @@ module.exports = function( grunt ) {
         },
 
 
-concat: {
-    dist: {
-        src: ['assets/libs/angular/angular.js' ,'assets/libs/angular-ui-router/release/angular-ui-router.min.js', 'assets/js/app.js', 'assets/js/**/*.js'],
-        dest: 'build/js/bundle.js',
-    },
-},
+        concat: {
+            dist: {
+                src: ['assets/libs/angular/angular.js',
+                'assets/libs/angular-ui-router/release/angular-ui-router.min.js',
+                'assets/js/app.js',
+                'assets/js/**/*.js'],
+                dest: 'build/js/bundle.js',
+            },
+        }, // concat
 
         connect: {
             server: {
@@ -49,7 +52,7 @@ concat: {
                     'assets/js/**/*',
                     'assets/scss/**/*'
                 ],
-                tasks : ['compass' ],
+                tasks : ['compass', 'concat' ],
                 options: {
                   livereload: true
                 },
@@ -68,6 +71,6 @@ concat: {
 
     // Roda Tarefas
     grunt.registerTask( 'build', ['copy', 'concat']);
-    grunt.registerTask( 'run', ['connect', 'open', 'compass', 'watch' ] );
+    grunt.registerTask( 'run', ['connect', 'open', 'compass', 'watch']);
 
 };

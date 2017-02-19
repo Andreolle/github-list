@@ -1,5 +1,5 @@
 angular.module("GitList").factory('githubAPI', function ($http) {
-	
+
 	var _getRepos = function() {
 		return $http.get("https://api.github.com/users/mundipagg/repos");
 	}
